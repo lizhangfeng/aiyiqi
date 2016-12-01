@@ -3,4 +3,11 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!-- app的颜色 -->
+    <color name="bg_color">#FFFFFF</color>
+    <color name="main_tab_select">#00A051</color>
+    <color name="main_tab_normal">#9FA1A5</color>
+
+
 </resources>

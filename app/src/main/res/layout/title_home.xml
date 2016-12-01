@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager_home"
+            android:layout_width="match_parent"
+            android:layout_height="150dp" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:columnCount="4"
+            android:background="@color/bg_color"
+            android:orientation="horizontal"
+            android:rowCount="2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:drawableTop="@mipmap/home_feature_package_new"
+                android:gravity="center"
+                android:text="装修公司" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:drawableTop="@mipmap/home_feature_activity"
+                android:gravity="center"
+                android:text="同城活动" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:drawableTop="@mipmap/home_feature_school"
+                android:gravity="center"
+                android:text="装修学堂" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:drawableTop="@mipmap/home_feature_my_budget"
+                android:gravity="center"
+                android:text="装修预算" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:drawableTop="@mipmap/home_feature_category"
+                android:gravity="center"
+                android:text="建材家具" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:drawableTop="@mipmap/home_feature_renderings_new"
+                android:gravity="center"
+                android:text="效果图" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:drawableTop="@mipmap/home_feature_self_order"
+                android:gravity="center"
+                android:text="自助下单" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:drawableTop="@mipmap/home_feature_design_measure"
+                android:gravity="center"
+                android:text="设计/预算" />
+
+
+        </GridLayout>
+
+    </LinearLayout>
+</layout>
