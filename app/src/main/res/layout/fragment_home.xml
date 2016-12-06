@@ -2,31 +2,30 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <com.jingchen.pulltorefresh.PullToRefreshLayout
-        android:id="@+id/refreshLayout"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="com.bwf.aiyiqi.ui.fragment.HomeFragment">
+        android:layout_height="match_parent">
 
-        <com.jingchen.pulltorefresh.PullableScrollView
+        <com.jingchen.pulltorefresh.PullToRefreshLayout
+            android:id="@+id/refreshLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            tools:context="com.bwf.aiyiqi.ui.fragment.HomeFragment">
 
-            <LinearLayout
+            <!-- 帖子文章列表 -->
+            <com.jingchen.pulltorefresh.PullableRecyclerView
+                android:id="@+id/rc_home"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:visibility="visible" />
 
-                <include layout="@layout/title_home" />
+        </com.jingchen.pulltorefresh.PullToRefreshLayout>
 
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/rc_home"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+        <include
+            android:id="@+id/home_title"
+            layout="@layout/title_home" />
 
-            </LinearLayout>
-        </com.jingchen.pulltorefresh.PullableScrollView>
+    </RelativeLayout>
 
-    </com.jingchen.pulltorefresh.PullToRefreshLayout>
 
 </layout>

@@ -23,13 +23,13 @@ public class WelcomeActivity extends BaseDataBindingActivity<ActivityWelcomeBind
     @Override
     public void setUseDefaultTitleBarColor() {
         useDefaultTitleBarColor = false;
-        super.setUseDefaultTitleBarColor();
     }
 
     @Override
     public void initData() {
         //淡出动画
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.alpha_0_100);
+        animation.setDuration(1000);
         AnimationHepler.getInstance().startAnimation(this, viewDataBinding.imgWelcome, animation, new AnimationHepler.OnAnimEnd() {
             @Override
             public void end() {

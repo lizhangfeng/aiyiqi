@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.net.Uri" />
+
+        <variable
+            name="bean"
+            type="com.bwf.aiyiqi.common.entity.ArticleBean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/divide_h"
+        android:paddingBottom="10dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/img_userhead"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                fresco:placeholderImage="@mipmap/default_avatar"
+                fresco:placeholderImageScaleType="centerCrop"
+                fresco:roundAsCircle="true" />
+
+            <TextView
+                android:id="@+id/tv_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/img_userhead"
+                android:text="@{bean.author}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_14" />
+
+            <TextView
+                android:id="@+id/tv_publish_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_username"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/img_userhead"
+                android:text="@{bean.dateline}"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_12" />
+
+            <ImageView
+                android:id="@+id/img_add_attation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/add_attention" />
+        </RelativeLayout>
+
+        <TextView
+            style="@style/item_content_text"
+            android:padding="10dp"
+            android:text="@{bean.title}" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/img_article_path"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ads_height"
+            android:background="@color/app_bg"
+            fresco:actualImageScaleType="fitXY"
+            fresco:placeholderImageScaleType="fitXY" />
+
+    </LinearLayout>
+</layout>

@@ -990,4 +990,5 @@ public class PullToRefreshLayout extends RelativeLayout {
         }
 
     }
-}
+
+ }

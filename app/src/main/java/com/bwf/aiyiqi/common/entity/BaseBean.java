@@ -14,6 +14,9 @@ public class BaseBean extends BaseObservable implements Parcelable {
     public String error;//error为0表示请求成功
     public String message;//code对应的信息
     public String data;//返回数据
+    public String newCount;//
+    public String currentPage;//
+    public String totalCount;//
 
 
     @Override
@@ -26,6 +29,9 @@ public class BaseBean extends BaseObservable implements Parcelable {
         dest.writeString(this.error);
         dest.writeString(this.message);
         dest.writeString(this.data);
+        dest.writeString(this.newCount);
+        dest.writeString(this.currentPage);
+        dest.writeString(this.totalCount);
     }
 
     public BaseBean() {
@@ -35,26 +41,20 @@ public class BaseBean extends BaseObservable implements Parcelable {
         this.error = in.readString();
         this.message = in.readString();
         this.data = in.readString();
+        this.newCount = in.readString();
+        this.currentPage = in.readString();
+        this.totalCount = in.readString();
     }
-
-    public static final Parcelable.Creator<BaseBean> CREATOR = new Parcelable.Creator<BaseBean>() {
-        @Override
-        public BaseBean createFromParcel(Parcel source) {
-            return new BaseBean(source);
-        }
-
-        @Override
-        public BaseBean[] newArray(int size) {
-            return new BaseBean[size];
-        }
-    };
 
     @Override
     public String toString() {
-        return "BaseResponse{" +
+        return "BaseBean{" +
                 "error='" + error + '\'' +
                 ", message='" + message + '\'' +
                 ", data='" + data + '\'' +
+                ", newCount='" + newCount + '\'' +
+                ", currentPage='" + currentPage + '\'' +
+                ", totalCount='" + totalCount + '\'' +
                 '}';
     }
 }

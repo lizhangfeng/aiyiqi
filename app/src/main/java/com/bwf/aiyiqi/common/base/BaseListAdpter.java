@@ -13,7 +13,7 @@ import java.util.List;
  */
 public abstract class BaseListAdpter<T, VH extends BaseListAdpter.ViewHolder> extends BaseAdapter {
 
-    protected List<T> tList;
+    protected List<T> datas;
 
     protected Context context;
 
@@ -24,26 +24,26 @@ public abstract class BaseListAdpter<T, VH extends BaseListAdpter.ViewHolder> ex
     }
 
     public BaseListAdpter(List<T> tList, Context context) {
-        this.tList = tList;
+        this.datas = tList;
         this.context = context;
     }
 
-    public void settList(List<T> tList) {
-        this.tList = tList;
+    public void setDatas(List<T> datas) {
+        this.datas = datas;
     }
 
-    public List<T> gettList() {
-        return tList;
+    public List<T> getDatas() {
+        return datas;
     }
 
     @Override
     public int getCount() {
-        return tList == null ? 0 : tList.size();
+        return datas == null ? 0 : datas.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return tList == null ? null : tList.get(i);
+        return datas == null ? null : datas.get(i);
     }
 
     @Override
@@ -63,7 +63,7 @@ public abstract class BaseListAdpter<T, VH extends BaseListAdpter.ViewHolder> ex
             viewHolder = (VH) convertView.getTag();
         }
 
-        T t = tList.get(postion);
+        T t = datas.get(postion);
 
         if (t != null)
             onBindViewHolder(viewHolder, t, postion);

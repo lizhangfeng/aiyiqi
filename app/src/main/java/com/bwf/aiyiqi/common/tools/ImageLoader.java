@@ -42,6 +42,46 @@ public class ImageLoader {
      * @param mSimpleDraweeView
      * @param url
      */
+    public void disPlayImage(SimpleDraweeView mSimpleDraweeView, String url) {
+
+        if (TextUtils.isEmpty(url))
+            return;
+
+        int width = 0;
+        int heigth = 0;
+
+        //如果layout里面没有设置宽高就给个默认高度
+        width = mSimpleDraweeView.getWidth();
+        heigth = mSimpleDraweeView.getHeight();
+
+        if (width <= 0) {
+            width = DisplayUtil.dip2px(App.getAppContext(), 40);
+        }
+        if (heigth <= 0) {
+            heigth = DisplayUtil.dip2px(App.getAppContext(), 40);
+        }
+
+        //配置ImageRequest
+        ImageRequest request = ImageRequestBuilder.newBuilderWithSource(Uri.parse(url))
+                .setProgressiveRenderingEnabled(true)//渐进式显示
+                .setLocalThumbnailPreviewsEnabled(true)
+                .setResizeOptions(new ResizeOptions(width, heigth))//支持缩放
+                .build();
+
+
+        //配置控制器
+        DraweeController controller = Fresco.newDraweeControllerBuilder()
+                .setImageRequest(request)
+                .setOldController(mSimpleDraweeView.getController())
+                .build();
+        mSimpleDraweeView.setController(controller);
+    }
+    /**
+     * 显示Image
+     *
+     * @param mSimpleDraweeView
+     * @param url
+     */
     public void disPlayImage(SimpleDraweeView mSimpleDraweeView, String url, final OnImageLoadListener onImageLoadListener) {
 
         if (TextUtils.isEmpty(url))

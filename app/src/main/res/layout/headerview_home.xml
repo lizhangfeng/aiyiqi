@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="event"
+            type="com.bwf.aiyiqi.ui.listener.HomeClickListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager_home"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_decoration"
+                style="@style/home_text_syle_01"
+                android:drawableTop="@mipmap/home_feature_package_new"
+                android:text="装修公司"
+                android:onClick="@{event.goDecoration}"/>
+
+            <TextView
+                android:id="@+id/tv_same_city"
+                style="@style/home_text_syle_01"
+                android:drawableTop="@mipmap/home_feature_activity"
+                android:text="同城活动"
+                android:onClick="@{event.goSameCity}"/>
+
+            <TextView
+                android:id="@+id/tv_decoration_school"
+                style="@style/home_text_syle_01"
+                android:drawableTop="@mipmap/home_feature_school"
+                android:text="装修学堂"
+                android:onClick="@{event.goDecorationSchool}"/>
+
+            <TextView
+                android:id="@+id/tv_decoration_budget"
+                style="@style/home_text_syle_01"
+                android:drawableTop="@mipmap/home_feature_my_budget"
+                android:text="装修预算"
+                android:onClick="@{event.goDecorationBudget}"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_building"
+                style="@style/home_text_syle_01"
+                android:drawableTop="@mipmap/home_feature_category"
+                android:onClick="@{event.goBuilding}"
+                android:text="建材家具" />
+
+            <TextView
+                android:id="@+id/tv_drawing"
+                style="@style/home_text_syle_01"
+                android:drawableTop="@mipmap/home_feature_renderings_new"
+                android:onClick="@{event.goDrawing}"
+                android:text="效果图" />
+
+            <TextView
+                android:id="@+id/tv_order"
+                style="@style/home_text_syle_01"
+                android:drawableTop="@mipmap/home_feature_self_order"
+                android:onClick="@{event.goOrder}"
+                android:text="自助下单" />
+
+            <TextView
+                android:id="@+id/tv_design"
+                style="@style/home_text_syle_01"
+                android:drawableTop="@mipmap/home_feature_design_measure"
+                android:onClick="@{event.goDesign}"
+                android:text="设计/预算" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

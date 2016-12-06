@@ -3,6 +3,7 @@ package com.jingchen.pulltorefresh;
 import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ScrollView;
 
@@ -63,10 +64,10 @@ public class PullableScrollView extends ScrollView implements Pullable {
 
     @Override
     public boolean canPullUp() {
-//		if (getScrollY() >= (getChildAt(0).getHeight() - getMeasuredHeight()))
-//			return true;
-//		else
-        return false;
+        if (getScrollY() >= (getChildAt(0).getHeight() - getMeasuredHeight()))
+            return true;
+        else
+            return false;
     }
 
     @Override
@@ -84,5 +85,28 @@ public class PullableScrollView extends ScrollView implements Pullable {
         }
     }
 
+    private float oldX, oldY, newX, newY, moveX, moveY;
 
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                oldX = ev.getX();
+                oldY = ev.getY();
+                break;
+            case MotionEvent.ACTION_MOVE:
+                newX = ev.getX();
+                newY = ev.getY();
+                moveX = newX - oldX;
+                moveY = newY - oldY;
+                if (Math.abs(moveX) > Math.abs(moveY)) {//水平滑动
+                    return false;
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+                break;
+        }
+        return super.onInterceptTouchEvent(ev);
+    }
 }
