@@ -4,20 +4,19 @@
 
     <data>
 
-        <import type="android.net.Uri" />
-
         <variable
             name="bean"
             type="com.bwf.aiyiqi.common.entity.ArticleBean" />
+
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
         android:layout_marginTop="@dimen/divide_h"
-        android:paddingBottom="10dp"
-        android:orientation="vertical">
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingBottom="10dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -75,6 +74,15 @@
             android:background="@color/app_bg"
             fresco:actualImageScaleType="fitXY"
             fresco:placeholderImageScaleType="fitXY" />
+
+        <TextView
+            style="@style/item_content_text"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:padding="10dp"
+            android:text="@{@string/essence_from+bean.forum.name}"
+            android:textColor="@color/owners_tag_color"
+            android:textSize="@dimen/text_14" />
 
     </LinearLayout>
 </layout>

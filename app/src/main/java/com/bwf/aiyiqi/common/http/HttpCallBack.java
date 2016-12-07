@@ -51,6 +51,14 @@ public abstract class HttpCallBack<T> extends StringCallback {
                 if ("0".equals(baseBean.error)) {
 
                     if (StringUtil.isNotEmpty(baseBean.data)) {
+
+                        if (baseBean.data.startsWith("[[")) {//板块接口的特殊处理
+                            baseBean.data = "{\"all\":" + baseBean.data.substring(1, baseBean.data.length() - 1) + "}";
+                            String[] strs = baseBean.data.split("],");
+                            String data = strs[0] + "],\"choose\":" + strs[1];
+                            baseBean.data = data;
+                        }
+
                         if (JsonUtil.getJsonType(baseBean.data) == JsonUtil.JSON_TYPE.JSON_TYPE_ARRAY) {//data为数组
                             onSuccess(null, JSON.parseArray(baseBean.data, tClass), response);
                         } else {
@@ -65,7 +73,8 @@ public abstract class HttpCallBack<T> extends StringCallback {
                     onFail(baseBean.message);
                 }
             } catch (JSONException e) {//解析异常
-                onFail("" + e.getMessage());
+                e.printStackTrace();
+                onFail("解析异常");
             }
 
 

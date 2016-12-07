@@ -32,7 +32,7 @@ android {
         }
     }
 
-    greendao{
+    greendao {
         schemaVersion 1 // 数据库schema版本，也可以理解为数据库版本号
 //        daoPackage "com.bwf.aiyiqi" //设置DaoMaster、DaoSession、Dao包名
         targetGenDir "src/main/java" //设置DaoMaster、DaoSession、Dao目录
@@ -43,17 +43,17 @@ dependencies {
     compile project(':pullToRefreshlibrary')
     compile project(':lib-zxing')
 
+    //facebook加载图片值fresco
+    //okhttp
+    //EventBus
+    //greenDao的使用
+
+
     compile 'com.android.support:appcompat-v7:24.0.0'
     compile 'com.android.support:support-v4:24.0.0'
-
-    //facebook加载图片值fresco
     compile 'com.facebook.fresco:fresco:0.12.0'
-    //okhttp
     compile 'com.zhy:okhttputils:2.6.2'
-    //EventBus
     compile 'org.greenrobot:eventbus:3.0.0'
-    //greenDao的使用
     compile 'org.greenrobot:greendao:3.2.0'
-
 }
 

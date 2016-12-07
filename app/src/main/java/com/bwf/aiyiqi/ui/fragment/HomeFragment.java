@@ -66,9 +66,7 @@ public class HomeFragment extends BaseDataBindingFragment<FragmentHomeBinding> i
         headerviewHomeBinding.setEvent(this);
         viewDataBinding.homeTitle.setEvent(this);
 
-        getHomePic();
-
-        //设置
+        //下拉刷新
         viewDataBinding.refreshLayout.setOnPullListener(new PullToRefreshLayout.OnPullListener() {
             @Override
             public void onRefresh(PullToRefreshLayout pullToRefreshLayout) {//下拉刷新
@@ -78,10 +76,14 @@ public class HomeFragment extends BaseDataBindingFragment<FragmentHomeBinding> i
             @Override
             public void onLoadMore(PullToRefreshLayout pullToRefreshLayout) {//加载更多
                 page++;
-                ArticleBean lastBean = articleBeen.get(articleBeen.size() - 1);
-                homeApi.getHomeList("" + page, lastBean.type, lastBean.id);
+                if (articleBeen != null && articleBeen.size() >= 1){
+                    ArticleBean lastBean = articleBeen.get(articleBeen.size() - 1);
+                    homeApi.getHomeList("" + page, lastBean.type, lastBean.id);
+                }
             }
         });
+
+        getHomePic();
 
     }
 

@@ -5,6 +5,7 @@ import android.view.animation.AnimationUtils;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.common.base.BaseDataBindingActivity;
+import com.bwf.aiyiqi.common.share.SharePrefreceHelper;
 import com.bwf.aiyiqi.common.util.AnimationHepler;
 import com.bwf.aiyiqi.common.util.IntentUtils;
 import com.bwf.aiyiqi.databinding.ActivityWelcomeBinding;
@@ -27,6 +28,14 @@ public class WelcomeActivity extends BaseDataBindingActivity<ActivityWelcomeBind
 
     @Override
     public void initData() {
+
+        //判断是否是第一次进入app
+        if (SharePrefreceHelper.getInstence(this).getNeedGuide()) {
+            IntentUtils.openActivity(this, GuideActivity.class);
+            SharePrefreceHelper.getInstence(this).setNeedGuide(false);
+            finish();
+        }
+
         //淡出动画
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.alpha_0_100);
         animation.setDuration(1000);

@@ -13,6 +13,8 @@ public class Constants {
 
     public static final String DB_NAME = "aiyiqi_db";//数据库名称
 
+    public static final String URL = "url";//
+
     /* 图片保存路径 */
     public static final String PHOTO_URI = "/BWF/DEMOS/Image";
 

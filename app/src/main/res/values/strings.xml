@@ -1,7 +1,32 @@
 <resources>
     <string name="app_name">爱一起</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="cancel">取消</string>
+    <string name="understand_you">让我们花10分钟了解你\n
+        以便发现您的最需要的装修内容
+    </string>
+    <string name="select_data">选择日期：</string>
+    <string name="select_sex">选择性别：</string>
+    <string name="man">男</string>
+    <string name="women">女</string>
+    <string name="decoration_step">装修阶段</string>
+    <string name="decoration_step_01">正在装修</string>
+    <string name="decoration_step_02">计划装修 今年 明年 后年</string>
+    <string name="decoration_step_03">已经入住</string>
+    <string name="decoration_step_04">暂无计划</string>
+    <string name="we_togher_decoration">进入一起装修</string>
+    <string name="exit_app">再点一次退出</string>
+
+    <string name="publish_article">发帖</string>
+    <string name="shaidan">晒单</string>
+    <string name="note">日记</string>
+    <string name="parise">投诉/表扬</string>
+    <string name="essence">精华</string>
+    <string name="newest">最新</string>
+    <string name="model">板块</string>
+    <string name="essence_from">精选自</string>
+
 
 </resources>

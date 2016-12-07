@@ -8,6 +8,9 @@
     <color name="bg_color">#FFFFFF</color>
     <color name="main_tab_select">#00A051</color>
     <color name="main_tab_normal">#9FA1A5</color>
+    <color name="about_you_bg">#EEF2F3</color>
+    <color name="about_you_btn_normal">#77C9A1</color>
+    <color name="owners_tag_color">#688ABA</color>
 
 
 </resources>

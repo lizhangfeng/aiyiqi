@@ -9,7 +9,106 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/app_bg"
         tools:context="com.bwf.aiyiqi.ui.fragment.OwnersSayFragment">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/white"
+                android:weightSum="5">
+
+                <ImageView
+                    android:id="@+id/communication_search"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:src="@mipmap/search_new" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_weight="3"
+                    android:background="@android:color/white"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rb_essence"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1.0"
+                        android:button="@null"
+                        android:checked="true"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:text="@string/essence"
+                        android:textColor="@color/owners_say_tab_selector"
+                        android:textSize="@dimen/text_14" />
+
+                    <RadioButton
+                        android:id="@+id/rb_newest"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:text="@string/newest"
+                        android:textColor="@color/owners_say_tab_selector"
+                        android:textSize="@dimen/text_14" />
+
+                    <RadioButton
+                        android:id="@+id/rb_model"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:text="@string/model"
+                        android:textColor="@color/owners_say_tab_selector"
+                        android:textSize="@dimen/text_14" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:weightSum="5">
+
+                <com.bwf.aiyiqi.ui.view.indicator.UnderlinePageIndicator xmlns:view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/owner_indicator"
+                    android:layout_width="0dp"
+                    android:layout_height="4px"
+                    android:layout_weight="3"
+                    android:visibility="visible"
+                    view:fades="false"
+                    view:selectedColor="@color/main_tab_select" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#eeeeee" />
+
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/owner_viewPager"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" />
+
+        </LinearLayout>
 
 
         <ImageView

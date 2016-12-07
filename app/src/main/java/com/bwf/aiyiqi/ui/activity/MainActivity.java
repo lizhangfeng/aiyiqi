@@ -1,6 +1,9 @@
 package com.bwf.aiyiqi.ui.activity;
 
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.FragmentTabHost;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost;
@@ -9,6 +12,7 @@ import android.widget.TextView;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.common.base.BaseActivity;
+import com.bwf.aiyiqi.common.util.ToastUtil;
 import com.bwf.aiyiqi.ui.fragment.HomeFragment;
 import com.bwf.aiyiqi.ui.fragment.MessageFragment;
 import com.bwf.aiyiqi.ui.fragment.MineFragment;
@@ -17,7 +21,7 @@ import com.bwf.aiyiqi.ui.fragment.OwnersSayFragment;
 /**
  * MainTab页面
  */
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements Handler.Callback {
 
     private FragmentTabHost fragmentTabHost;
 
@@ -32,6 +36,8 @@ public class MainActivity extends BaseActivity {
 
     private Integer icons_select[] = {R.mipmap.main_tab_home_selected, R.mipmap.main_tab_community_selected, R.mipmap.main_tab_msg_selected, R.mipmap.main_tab_my_selected};
 
+    private Handler handler;
+
     @Override
     public int getContentViewId() {
         return R.layout.activity_main;
@@ -39,7 +45,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void beforeInitView() {
-
+        handler = new Handler(this);
     }
 
     @Override
@@ -106,5 +112,53 @@ public class MainActivity extends BaseActivity {
     @Override
     public void onClick(View view) {
 
+    }
+
+    private static final int TIMES = 2000;
+
+    private boolean isBack = true;
+
+    /**
+     * 按下监听
+     *
+     * @param keyCode
+     * @param event
+     * @return
+     */
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_BACK) {//按下返回键
+
+            if (isBack) {
+                ToastUtil.showToast(getString(R.string.exit_app));
+                isBack = false;
+                handler.sendEmptyMessageDelayed(1, 2000);
+            } else {
+                //退出app
+                System.exit(0);
+            }
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public boolean handleMessage(Message msg) {
+
+        switch (msg.what) {
+            case 1:
+                isBack = true;
+                break;
+        }
+
+        return false;
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (handler != null)
+            handler.removeCallbacksAndMessages(null);
+        super.onDestroy();
     }
 }

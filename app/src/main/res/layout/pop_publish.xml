@@ -1,24 +1,100 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical">
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout
+    <data>
+
+    </data>
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
-        <TextView
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_publish_article"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:drawableTop="@drawable/pop_publish_btn_selector_01"
+                    android:gravity="center"
+                    android:paddingBottom="10dp"
+                    android:text="@string/publish_article"
+                    android:textColor="@color/share_text" />
+
+                <TextView
+                    android:id="@+id/tv_note"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_publish_article"
+                    android:drawablePadding="10dp"
+                    android:drawableTop="@drawable/pop_publish_btn_selector_03"
+                    android:gravity="center"
+                    android:paddingBottom="10dp"
+                    android:text="@string/note"
+                    android:textColor="@color/share_text" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_shaidan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tv_publish_article"
+                    android:drawablePadding="10dp"
+                    android:drawableTop="@drawable/pop_publish_btn_selector_02"
+                    android:gravity="center"
+                    android:paddingBottom="10dp"
+                    android:text="@string/shaidan"
+                    android:textColor="@color/share_text" />
+
+
+                <TextView
+                    android:id="@+id/tv_praise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_publish_article"
+                    android:layout_toRightOf="@id/tv_note"
+                    android:drawablePadding="10dp"
+                    android:drawableTop="@drawable/pop_publish_btn_selector_04"
+                    android:gravity="center"
+                    android:paddingBottom="10dp"
+                    android:text="@string/parise"
+                    android:textColor="@color/share_text" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/img_pop_publish"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="发帖"
-            android:textColor="@color/share_text"
-            android:drawableTop="@drawable/pop_publish_btn_selector_01"/>
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="70dp"
+            android:layout_marginRight="20dp"
+            android:src="@mipmap/float_layer_menu_close"
+            android:visibility="visible" />
 
+    </RelativeLayout>
 
-    </LinearLayout>
-
-</LinearLayout>
+</layout>
